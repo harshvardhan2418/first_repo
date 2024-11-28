@@ -1,0 +1,515 @@
+Host:myhostname hk         :hostname
+
+    A host typically refers to a machine or device on a network that is identified by an IP address or a hostname. It could be a physical server, a computer, a virtual machine, or any device capable of running software and connecting to a network.
+
+user: harshvardhan      :whoami
+A user refers to an individual or an account that interacts with the system or the network. In the context of an operating system, a user is someone who logs into the system to perform tasks, access files, and run applications.
+
+
+ipaddress: 
+hostname -I 
+ip addr show   ipadress isted under inet
+
+
+cd ~  :directly go to starting or home directory  or cd 
+
+cd ..  previous directory 
+
+cd ../..  previous to previous  
+
+
+
+mkdir /path/to/directory/linux  :make directory 
+
+
+
+MV:The mv command in Linux is used to move files or directories from one location to another. rename
+
+mv linux destinationpath 
+
+mv linux new_name  this will rename the liux 
+
+
+mv linux ../  move folder or file to previos directory  
+
+
+
+
+CP WITH RECURSIVE FLAG 
+cp -copy  -r means recursively which menas to include all sundirectories and files 
+
+cp -r [source] [destination]
+
+cp -r [source] [destination]/rename   if you want to rename the file
+
+
+
+ls: list of files 
+ls -l gives all files excluding hidden files 
+ls -a will give all files hidden also 
+ls -lh files with human redable fromat 
+ls -R  Lists files in the current directory and all its subdirectories recursively. 
+
+
+
+pwd:present working directory 
+
+
+
+
+rm-remove : 
+
+rm filename 
+
+rm file1.txt file2.txt file3.txt  :for multiple deletions 
+
+rm -i file1.txt      :interactive deletion it asks s or no first 
+
+rm -r directory_name   :recursive removal becareful while doing it because all subdirectories and files inside them deleted perminently 
+ 
+
+
+chmod change the mod of permision 
+read 4      100
+write 2     010 
+execute 1   001      7=111 
+format d---------  total 10 :first - is for file or directory 
+next 3 for user next 3 for group next 3 for other 
+
+chmod 755 file.txt 
+user has 4+3+1 rwx all 3  and group have 4+1(rx) others have 4+1(rx)
+ 
+
+
+
+APT:advanced package tool 
+sudo apt install curl  one package intallation 
+sudo apt install curl git vim  multiple installation 
+
+
+sudo apt remove curl  remove pakage
+sudo apt purge curl  remove package with config
+
+
+
+Touch:
+
+touch newfile.txt     creates a new file 
+
+touch existingfile.txt
+    This command updates the access time and modification time of existingfile.txt to the current time.
+    
+
+
+CAT:
+
+cat file.txt
+ This will output the content of file.txt to the terminal
+ 
+cat file1.txt file2.txt 
+display both files content 
+
+
+cat file1.txt file2.txt > combined.txt 
+
+new file is crated and both file content goes to combined.txt and prints 
+
+
+tac file.txt  prints reverse   
+
+
+
+
+less: 
+less file.txt  like scroll bar 
+less -N file.txt   less gives forward and backword navigation 
+
+more: 
+more file.txt   more give only forward navigation 
+
+
+
+
+head ,tail :head gives top 10 tail gives below 10 by default 
+head h.txt
+tail h.txt 
+head -n 4 h.txt gives top 4 
+
+
+
+
+
+RSINK: remote sink
+rsink is used to transferfiles  .in local machine(my pc) from src to des  
+
+we can also send files remotely:means to the pc which is not near or far away (Assuming you have SSH access to a remote server, try syncing a file) 
+
+ssh:SSH (Secure Shell) is a protocol (or a way) to securely access and manage remote computers over a network, typically the internet. SSH access means you can log into another computer remotely, control it, and perform various tasks as if you were sitting right in front of it, but all done securely.
+
+SSH is widely used by system administrators, developers, and anyone who needs to access a computer remotely. It's commonly used to log into servers, transfer files, and run commands on remote systems.
+
+
+
+local:
+rsync source_file.txt /tmp/   to copy a file 
+
+rsync -r /path/to/source_directory/ /path/to/destination_directory/
+to copy a directory 
+
+
+
+
+ grep: global regular expression print 
+ 
+ grep "error" logfile.txt  :print all the lines containing error in the file 
+ 
+ gerp -i "error" logfile.txt  makes case insensitive 
+ 
+ 
+ grep -w "error" logfile.txt   searches for exact word(!ignores supererror) 
+ 
+ 
+grep -n "error" logfile.txt gives line numbers 
+
+grep "error" *.txt  search error in all the files in curr dir 
+
+
+grep -r "error" /path/to/directory/   goes recursively to subdirectories  
+
+
+
+grep -o "error" logfile.txt  print only matching part not entire line 
+
+
+
+Find:find searches recursively through the directories specied and sub directories 
+
+Find path expression 
+
+find . -name "example.txt"  .means curr dir 
+find despath  -iname "example.txt"  i means search case insenstive 
+
+find . -type d   d:seach directories in the given path
+
+find /home -type f  f means search files in the given path 
+
+
+find  /var/log  -type f -size +100M   :seach by file size. 
+
+
+find /home/user -type f -mtime +30  modified time more than 30days,
+-30 modifies time less than 30days  30 equal to 30 
+
+
+
+find . -type f -perm 600   search by file permision 
+
+
+
+find . -type f -cmin -30  cmin created min 
+
+
+
+sort: sort is used to sort files
+sort file.txt   :sorts in ascending order 
+sort -r file.txt  :sort reverse desending order  
+
+
+
+date : 
+Thu Nov 27 14:35:50 UTC 2024. 
+date "+%Y %m %d"  year-m-d   we can provide anything between y m d(- : anything)
+date "+%H %M %S"  hour-min-sec
+
+
+WC: word count 
+wc file.txt
+
+Output example:
+5   30  210 file.txt     no of ,line word charactes in file 
+
+wc -l file.txt   :only lines 
+
+
+wc -w file.txt       :no of words 
+
+wc -m file.txt       :gives no of characters  
+
+
+
+     
+     
+           OS/Process Related Commands: 
+ps: 
+ps
+
+Output example:
+  PID TTY          TIME CMD              process related to terminal
+  1234 pts/0    00:00:03 bash
+  5678 pts/0    00:00:00 ps
+
+
+
+ps -e 
+To display all processes currently running on the system (not just the ones associated with the current terminal session).
+
+
+
+ps aux 
+
+USER       PID  %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root      1234  0.1  2.0  123456 67890 pts/0  Ss+  14:30   0:00 /bin/bash
+user      2345  0.0  1.5  234567 12345 pts/0  R+   14:31   0:00 ps aux 
+
+ps aef 
+
+Output Example (with process tree):
+
+UID        PID  PPID  C STIME TTY          TIME CMD
+root       1234  5678  0 14:30 pts/0    00:00:03 /bin/bash
+root       2345  1234  0 14:30 pts/0    00:00:00  ├─ ps aef
+user       3456  1234  0 14:31 pts/0    00:00:01  └─ someprocess 
+
+
+both shows almost same data but aef shows graps 
+
+
+
+
+TOP:A Real-Time Monitoring Tool: 
+
+PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+1234 root      20   0  105672  11180   6172 S  1.0  0.3   0:03.72 sshd
+2345 john      20   0  319844  24932  14212 S  0.7  0.6   0:04.20 gnome-shell
+3456 root      20   0  342840  35212  16072 S  0.5  0.9   0:02.10 systemd
+
+
+top and aux both shows cpu and memory then what is the diff: 
+top shows data continusoly .aux takes sceenshot and just print it on screen 
+
+
+
+df:It shows the amount of disk space used, available, and the mount points for each disk partition or file system.  
+
+df -h 
+
+
+
+uname -a  shows all details 
+kernal name,hostname,kernalversion,kernal build details,machine archtechture,os 
+
+
+uname -s  kernal name :linux
+
+uname -n  hostname    :hk 
+
+uname -v  version of kernel include build details 
+
+uname -p  processor type,harware name   :x86_64  
+
+uname -o  GNU/Linux 
+
+
+
+free -h 
+
+             total        used        free      shared  buff/cache   available
+Mem:           16Gi        8.0Gi        2.0Gi        1.0Gi        6.0Gi        7.5Gi
+Swap:          4.0Gi        0.0Gi        4.0Gi
+  
+it tells about ram. 
+
+Swap space is a portion of your disk that is used as an extension of RAM when physical memory is full.
+It prevents system crashes when memory runs out but can significantly slow down the system because disk access is slower than RAM. 
+
+
+
+lspci :PCI devices are typically hardware components like graphics cards, network cards, storage controllers, USB controllers, and sound cards, that are connected to your system via the PCI bus.
+
+lspci -v  verbal in detail
+
+lspci -t  tree 
+lspci -n numeric  
+
+
+
+
+pidof  firefox 
+pgrep firefox   both shows pid 
+
+
+
+
+-9  Forcefully terminate a process (cannot be caught).
+
+kill -9 <PID>
+
+-15  Gracefully terminate a process (default signal).
+
+kill -15 <PID>  
+
+
+
+                Network Related Commands: 
+                
+                
+ping:check internet connection
+
+ping google.com 
+
+ping 8.8.8.8     :ip address 
+
+
+ping -c 5 google.com    Ping with a specific number of packets: To send exactly 5 packets: 
+
+
+
+
+ ifconfig: 
+ inet: The IPv4 address.
+netmask: The subnet mask.
+ether: The MAC address of the interface.
+RX: Information about received packets.
+TX: Information about transmitted packets. 
+
+
+
+SSH:The ssh (Secure Shell) command is a protocol used for securely accessing and managing remote systems over a network. It encrypts the connection, ensuring that any data exchanged between your machine and the remote server is protected 
+
+
+
+
+Connect to a Remote Host: To connect to a remote server or machine using SSH:
+ssh user@hostname_or_ip
+
+Example:
+
+ssh user@192.168.1.100
+    user: The username you want to log in with on the remote machine.
+    hostname_or_ip: The hostname or IP address of the remote machine.
+
+Connect Using a Specific Port: If the SSH server is running on a non-default port (other than port 22), use the -p flag to specify the port:
+
+ssh -p 2222 user@192.168.1.100
+
+Run a Command on a Remote Machine Without Logging in Interactively: You can execute a specific command on the remote machine without logging into an interactive shell session:
+
+ssh user@192.168.1.100 'command_to_run'
+
+Example:
+
+ssh user@192.168.1.100 'ls /home/user'
+
+This will list the contents of /home/user on the remote machine.
+
+
+
+
+
+
+                      Bash related commands 
+                      
+                      
+What is xargs?
+
+xargs is a command that helps you use the output of one command (like a list of files or items) as input to another command. It’s especially useful when the second command needs a list of arguments to operate on, and it can't easily handle multiple inputs at once. 
+xargs runs commands more efficiently in bulk.
+
+
+find . -name "*.txt"   will give all .txt files in curr directory 
+
+find . -name "*.txt" | xargs rm
+
+Here’s what’s happening:
+
+    find . -name "*.txt" lists all .txt files in the directory.
+    | (the pipe) sends that list to xargs.
+    xargs takes that list and passes it to rm so it can delete those files. 
+    
+    
+    
+find . -name "*.txt" | xargs cp -t /path/to/destination 
+
+
+
+
+
+
+awk:
+
+o/p:
+Name Age Gender
+John 25 Male
+Alice 30 Female
+
+    $0 refers to the entire line (e.g., "John 25 Male").
+    $1 refers to the first field (e.g., "John").
+    $2 refers to the second field (e.g., "25").
+    $3 refers to the third field (e.g., "Male"). 
+    
+    
+To print everything in a file:
+
+awk '{ print $0 }' file.txt
+
+    $0 refers to the entire line, so it prints each line in file.txt. 
+    
+    
+    
+Example 2: Print Specific Fields
+awk '{ print $1, $2 }' file.txt 
+
+
+awk '$2 > 25 { print $1, $2 }' file.txt    print colum 1,2 when col 2 grater than 25 
+
+
+
+
+
+
+
+sed: 
+
+replace:
+
+Let's say you have a file fruits.txt with the following content:
+
+apple
+banana
+apple
+grape
+
+Now, you want to replace all instances of "apple" with "orange". Here's how you'd do it with sed:
+
+sed 's/apple/orange/' fruits.txt       s stands for substitute.  only first one
+  
+sed 's/apple/orange/g' fruits.txt      global replacement all words substitute 
+
+
+
+
+delete:
+sed '2d' fruits.txt   delete 2nd line 
+
+
+print: 
+sed -n '3p' fruits.txt   print 3rd line 
+
+
+
+
+
+
+pipe: 
+echo "apple banana cherry" | grep "banana"
+
+ps aux | grep "ssh" 
+
+
+cat file.txt | sort | uniq
+
+Explanation:
+
+    cat file.txt outputs the contents of file.txt.
+    sort sorts the lines alphabetically.
+    uniq removes any duplicate lines from the sorted output.

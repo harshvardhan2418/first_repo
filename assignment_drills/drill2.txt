@@ -1,0 +1,122 @@
+                   Pipes:
+
+1.Print the first three lines in the book 
+head -n 3 book.txt 
+
+head:top 
+-n :number of lines 
+
+2.Print the last 10 lines in the book 
+tail -n 10 book.txt 
+
+ tail:bottom  
+
+3.How many times do the following words occur in the book?
+    Harry
+    Ron
+    Hermione
+    Dumbledore
+
+grep -o -i '\bharry\b' book.txt | wc -l 
+
+o:only 
+i:case insensitive 
+/b word boundary igonre before and after harry 
+| pipe transfer output to next command input 
+wc -l counts no of lines 
+
+
+
+4.Print lines from 100 through 200 in the book 
+head -n 200 book.txt | tail -n 101 
+
+
+                 processes,ports 
+                 
+
+1.List your browser's process ids (pid) and parent process ids (ppid): 
+
+ps aux | grep -i browser 
+
+ps aux:commands gives all processes running in the system pid,ppid,cpu usage,memeory usage 
+
+
+2.Stop the browser application from the command line 
+
+kill pid(pid of any process) 
+
+
+3.List the top 3 processes by CPU usage 
+
+ps aux --sort=-%cpu | head -n 4 
+
+ps aux: Lists all running processes.
+--sort=-%cpu: Sorts the processes in descending order
+head -n 4: Displays the first 4 lines. The first line is the header,so we display 4 
+
+
+
+4.List the top 3 processes by memory usage:
+
+ps aux --sort=-%mem | head -n 4 
+
+same command replace cpu with memory 
+
+
+
+5.start a Python HTTP server on port 8000 
+ 
+python3 -m http.server 8000 
+
+this commands starts http server. 
+open browser http://localhost:8000 
+we will get all files of pwd. 
+
+
+6.Start a Python HTTP server on port 90: 
+
+sudo python3 -m http.server 90 
+
+port number below 1000 cannot be accessed directly by the user .root user only can access 
+
+
+
+7.Display all active connections and the corresponding TCP / UDP ports. 
+
+sudo ss -tuln 
+
+ss-socket stat 
+l-listening t-tcp u-udp  socket whith numirical adress(-n)
+
+
+
+8.find the pid of the process that is listening on port 5432 
+
+sudo ss -tuln | grep 5353 
+
+
+                             MISC 
+                           
+ 1.What's your local IP address?                          
+  
+  hostname -I   127.0.0.1 
+  
+  
+  
+ 2.Find the IP address of google.com 
+  
+  nslookup google.com 
+  
+  
+ 
+ 3. Where is the node command located? What about code?  
+ 
+ which node ,which code 
+ node -v,code -v to check if installed or not. 
+ 
+ 
+ 4.how to check internet conection 
+ ping google.com  
+ 
+ response:"request timeout" or "Destination Host Unreachable" 
+ internet not working
