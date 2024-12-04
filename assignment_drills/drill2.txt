@@ -17,7 +17,7 @@ tail -n 10 book.txt
     Hermione
     Dumbledore
 
-grep -o -i '\bharry\b' book.txt | wc -l 
+grep -o 'harry' book.txt | wc -l 
 
 o:only 
 i:case insensitive 
