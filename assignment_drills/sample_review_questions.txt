@@ -1,0 +1,26 @@
+uname -s: Displays the kernel name (e.g., Linux).
+-r: Shows the kernel version (e.g., 5.4.0-42-generic).
+-v: Displays the kernel version information.
+-o: Displays the operating system (e.g., GNU/Linux).  
+
+
+
+
+lspci | grep -i audio 
+
+
+
+
+
+To search for all occurrences of the word "java" anywhere in filenames or directory names in your system, you can use the find command in a terminal. Here’s the command to run:
+Command:
+
+find ~ -iname '*java*'   . says in the same dir ~ any where 
+
+
+
+
+grep -oi 'word' /path/to/harry_potter.txt | wc -l
+
+
+
