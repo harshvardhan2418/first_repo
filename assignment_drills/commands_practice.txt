@@ -23,7 +23,7 @@ mkdir /path/to/directory/linux  :make directory
 
 
 
-MV:The mv command in Linux is used to move files or directories from one location to another. rename
+MV:The mv command in Linux is used to move files or directories from one location to another.  and rename
 
 mv linux destinationpath 
 
@@ -45,7 +45,7 @@ cp -r [source] [destination]/rename   if you want to rename the file
 
 
 ls: list of files 
-ls -l gives all files excluding hidden files 
+ls -l gives all files excluding hidden files .giving detailed information
 ls -a will give all files hidden also 
 ls -lh files with human redable fromat 
 ls -R  Lists files in the current directory and all its subdirectories recursively. 
@@ -88,7 +88,7 @@ sudo apt install curl git vim  multiple installation
 
 
 sudo apt remove curl  remove pakage
-sudo apt purge curl  remove package with config
+
 
 
 
@@ -109,10 +109,12 @@ cat file.txt
 cat file1.txt file2.txt 
 display both files content 
 
+cat>file1.txt    creates files,enter the text ,press enter button,ctrl+d leaves the page
 
 cat file1.txt file2.txt > combined.txt 
-
 new file is crated and both file content goes to combined.txt and prints 
+
+cat>>file1.txt   append to the file
 
 
 tac file.txt  prints reverse   
@@ -165,17 +167,13 @@ to copy a directory
  
  gerp -i "error" logfile.txt  makes case insensitive 
  
- 
  grep -w "error" logfile.txt   searches for exact word(!ignores supererror) 
  
- 
-grep -n "error" logfile.txt gives line numbers 
+grep -n "error" logfile.txt   gives line numbers 
 
-grep "error" *.txt  search error in all the files in curr dir 
-
+grep "error" *.txt  search error in all the txt files in curr dir 
 
 grep -r "error" /path/to/directory/   goes recursively to subdirectories  
-
 
 
 grep -o "error" logfile.txt  print only matching part not entire line 
@@ -185,26 +183,20 @@ grep -o "error" logfile.txt  print only matching part not entire line
 Find:find searches recursively through the directories specied and sub directories 
 
 Find path expression 
-
 find . -name "example.txt"  .means curr dir 
 find despath  -iname "example.txt"  i means search case insenstive 
 
-find . -type d   d:seach directories in the given path
 
+
+find . -type d   d:seach directories in the given path
 find /home -type f  f means search files in the given path 
 
 
 find  /var/log  -type f -size +100M   :seach by file size. 
 
+find /home/user -type f -mtime +30  modified time more than 30days,     -30 modifies time less than 30days  30 equal to 30 
 
-find /home/user -type f -mtime +30  modified time more than 30days,
--30 modifies time less than 30days  30 equal to 30 
-
-
-
-find . -type f -perm 600   search by file permision 
-
-
+find . -type f -perm 600     search by file permision 
 
 find . -type f -cmin -30  cmin created min 
 
@@ -239,7 +231,7 @@ wc -m file.txt       :gives no of characters
 
      
      
-           OS/Process Related Commands: 
+                       OS/Process Related Commands: 
 ps: 
 ps
 
@@ -298,16 +290,15 @@ df -h
 uname -a  shows all details 
 kernal name,hostname,kernalversion,kernal build details,machine archtechture,os 
 
-
-uname -s  kernal name :linux
-
 uname -n  hostname    :hk 
-
-uname -v  version of kernel include build details 
 
 uname -p  processor type,harware name   :x86_64  
 
-uname -o  GNU/Linux 
+ 
+uname -s: Displays the kernel name (e.g., Linux).
+-r: Shows the kernel version (e.g., 5.4.0-42-generic).
+-v: Displays the kernel version information.
+-o: Displays the operating system (e.g., GNU/Linux).  
 
 
 
@@ -328,8 +319,7 @@ lspci :PCI devices are typically hardware components like graphics cards, networ
 
 lspci -v  verbal in detail
 
-lspci -t  tree 
-lspci -n numeric  
+laspci | grep audio
 
 
 
@@ -428,7 +418,7 @@ Here’s what’s happening:
     
     
     
-find . -name "*.txt" | xargs cp -t /path/to/destination 
+find . -name "*.txt" | xargs cp -t /path/to/destination     -t specifies the target directory
 
 
 

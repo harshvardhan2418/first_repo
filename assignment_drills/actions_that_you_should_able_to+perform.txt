@@ -1,0 +1,218 @@
+Create/Read/Update/Delete/Move files and folders from command line 
+
+Here are the common commands for Create, Read, Update, Delete, and Move files and folders from the command line in Linux.
+1. Create Files and Folders
+
+    Create a file (touch):
+
+touch filename.txt
+
+This will create an empty file named filename.txt.
+
+Create a directory (mkdir):
+
+mkdir directory_name
+
+This creates a directory named directory_name.
+
+Create a file with content using echo:
+
+echo "Hello, World!" > filename.txt 
+
+
+
+
+ 
+
+
+Read Files and Folders
+
+    Read the content of a file (cat):
+
+cat filename.txt
+
+This will display the content of filename.txt in the terminal.
+
+Read the content of a file with pagination (less, more):
+
+less filename.txt
+more filename.txt
+
+These commands display the content of filename.txt one page at a time.
+
+Display the first few lines of a file (head):
+
+head filename.txt
+
+By default, this shows the first 10 lines of the file.
+
+Display the last few lines of a file (tail):
+
+tail filename.txt
+
+By default, this shows the last 10 lines of the file.
+
+List files and directories (ls):
+
+    ls               # Lists files in the current directory
+    ls -l            # Lists files with details like permissions, size, etc.
+    ls -a            # Lists all files, including hidden files (those starting with .)
+    ls /path/to/dir  # Lists files in a specific directory
+
+
+
+
+Update Files and Folders
+
+    Edit a file (using a text editor like nano or vi):
+
+nano filename.txt  # Open file in nano editor
+vi filename.txt    # Open file in vi editor
+
+Append content to a file (echo with >>):
+
+echo "New line of text" >> filename.txt
+
+
+
+
+Delete a file (rm):
+
+rm filename.txt
+
+This will delete filename.txt.
+
+Delete a directory (rm -r):
+
+rm -r directory_name
+
+The -r option is used to delete the directory and its contents recursively. 
+
+
+
+Move a file (mv):
+
+mv source_file destination_directory
+
+This moves source_file to destination_directory.
+
+Rename a file (mv):
+
+mv old_filename.txt new_filename.txt
+ 
+ 
+ 
+ 
+
+
+
+Check disk status: 
+
+
+df (Disk Free) Command
+
+The df command displays the amount of disk space used and available on your system.
+
+    Usage:
+
+df
+
+This command shows the disk usage in 1K blocks by default.
+
+To display in a human-readable format (GB, MB, etc.):
+
+df -h
+
+
+
+
+
+
+Using ps, xargs, and awk to Extract PIDs
+
+Let's go through an example of using ps, xargs, and awk together to list all running processes and extract their Process IDs.
+
+
+ps: The ps command is used to list the running processes.
+
+    ps aux: Lists all processes running on the system, along with detailed information.
+
+xargs: This command is used to pass arguments to other commands. For instance, you can pipe a list of processes into xargs to run commands on each of them.
+
+awk: This is a powerful text-processing tool that allows you to extract specific columns from output. For example, awk '{print $2}' can be used to extract the second column, which is typically the PID in the output of ps.
+
+
+
+Example 1: Extract All Process IDs
+
+This example shows how to list all processes and extract their PIDs.
+
+ps aux | awk '{print $2}'
+
+    ps aux: Lists all processes running.
+    awk '{print $2}': Extracts the second column, which corresponds to the PID.
+    
+   
+ps aux | grep nginx | awk '{print $2}' 
+
+print only cols having nginx in the column 
+
+
+
+ps aux | grep nginx | awk '{print $2}' | xargs kill 
+kill all the process having nginx 
+
+
+
+
+
+Here’s how to trace the most senior parent process:
+    Find the Parent Process ID (PPID) of a given process:
+
+ps -o pid,ppid,cmd -p <PID>
+
+Name: init or systemd (depending on the system)
+PID: 1 
+
+
+
+how to get word count in a file: 
+grep -o 'apple' file.txt | wc -l
+
+
+
+absoulte path vs relative path : 
+
+absolute path starts from begigining root folder to destination 
+home/user/Documents/file.txt
+
+relative path starts from curr directory.
+If you're currently in /home/user/ and want to reference a file inside /home/user/Documents/, you can use a relative path like:
+
+    Documents/file.txt 
+    
+    
+
+ls: 
+ls -a   all files hidden
+ls -t   based on time 
+ls -r    reverse 
+ls -lh    human redable 
+
+
+
+ctrl+c   stop the running command  ping google.com
+ctrl+z   pauses the command running in backround   fg starts again
+ctrl+d   end of the input   use when giving input cat command 
+
+
+
+Press Ctrl + R:
+While in your terminal, press Ctrl + R. This will activate the reverse search feature, and you will see the following prompt:
+
+(reverse-i-search)`':
+
+Start Typing a Search Term:  
+
+
+
